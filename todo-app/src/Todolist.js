@@ -1,29 +1,36 @@
 import React, { Component } from 'react'
 import Newtodoform from './Newtodoform'
+import Todo from './Todo'
 
 class Todolist extends Component{
     constructor(props){
         super(props);
-        this.state={ Todo:[]};
+        this.state={ todos:[]};
         this.create = this.create.bind(this);
+        this.remove = this.remove.bind(this);
     };
 
-    create(newTodo) {
+    create(newTodo){
         this.setState({
           todos: [...this.state.todos, newTodo]
         });
     }
 
+    remove(id){
+        this.setState({
+            todos: this.state.todos.filter(t => t.id !== id)
+        });
+    }
 
     render(){
-        const todos = this.state.todos.map(todo => {});
+        const todos = this.state.todos.map(todo => {
+            return <Todo key={todo.id} task={todo.task}/>
+        });
         return(
             <div className='Todolist'>
-                <h1>hi there!</h1>
-                <ul>
-                    <li>Todo1</li>
-                    <li>Todo2</li>
-                </ul>
+                <Newtodoform id= {this.id} createTodo = {this.create} removeTodo = {this.remove}/> 
+                <h1>Todo List!</h1>
+                <ul>{todos}</ul>
             </div>
         );
     }
