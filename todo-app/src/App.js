@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Newtodoform from './Newtodoform';
+import Todolist from './Todolist';
 
 function App() {
   return (
-    <Newtodoform />    
+    <Todolist />    
   );
 }
 
