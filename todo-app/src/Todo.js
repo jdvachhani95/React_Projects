@@ -15,32 +15,26 @@ class Todo extends Component {
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
   }
-
   handleRemove() {
     this.props.removeTodo(this.props.id);
   }
-
   toggleForm() {
     this.setState({ isEditing: !this.state.isEditing });
   }
-
   handleUpdate(evt) {
     evt.preventDefault();
     //take new task data and pass up to parent
     this.props.updateTodo(this.props.id, this.state.task);
     this.setState({ isEditing: false });
   }
-
   handleChange(evt) {
     this.setState({
       [evt.target.name]: evt.target.value
     });
   }
-
   handleToggle(evt) {
     this.props.toggleTodo(this.props.id);
   }
-  
   render() {
     let result;
     if (this.state.isEditing) {

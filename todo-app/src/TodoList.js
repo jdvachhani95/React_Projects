@@ -70,9 +70,8 @@ class TodoList extends Component {
           Get To Work! <span>An Animated Todo List Made With React Hooks.</span>
         </h1>
         <NewTodoForm createTodo={this.create} />
-
         <ul>
-          <TransitionGroup className='todo-list'>{todos}</TransitionGroup>
+          {todos}
         </ul>
       </div>
     );
